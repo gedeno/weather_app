@@ -1,13 +1,78 @@
-.Fdiv{
-    width: 600px;
-    height: 600px;
-    max-width: 90%;
-    max-height: 90px;
-    min-width: 90%;
-    min-height: 90%;
-    margin: 10px;
-    padding: 10px;
-    background-color: #262f3e;
-    display: flexbox;
 
+.leftDiv{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.SevDAY{
+   
+    border: 3px solid black;
+    padding: 20px;
+    margin: 10px;
+    max-width: 90%;
+    max-height: 100%;
+    border-radius: 10px;
+    background-color: #262f3e;
+}
+
+.searchDiv{
+  grid-column: 1 / -1; 
+  display: flex;
+  gap: 10px;
+}
+.Today{
+    height: 250px;
+}
+.Search{
+    background-color: #262f3e;
+    border: 3px solid black;
+    max-width:90% ;
+    flex: 1;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    outline: none;
+}
+.Search:hover{
+    scale: 1.02;
+}
+.searchB{
+    background-color: #05406a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0 20px;
+    cursor: pointer;
+    font-weight: bold
+}
+.searchB:hover {
+  background-color: #007ccf;
+  scale: 1.02;
+}
+
+.Today_pro{
+    border: 3px solid black;
+    padding: 5px;
+    margin: 5px;
+    height: 180px;
+    border-radius: 10px;
+    background-color: #262f3e;
+}
+.Air_con{
+    border: 3px solid black;
+    padding: 20px;
+    margin: 10px;
+    height: 180px;
+    border-radius: 10px;
+    background-color: #262f3e;
+  
+}
+.ALL1{
+    background-color: #131a24;
+    display: flex;
+    grid-template-columns: 2fr 1fr ;
+    display: grid;
+    padding: 20px;
 }
