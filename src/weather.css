@@ -1,0 +1,13 @@
+.Fdiv{
+    width: 600px;
+    height: 600px;
+    max-width: 90%;
+    max-height: 90px;
+    min-width: 90%;
+    min-height: 90%;
+    margin: 10px;
+    padding: 10px;
+    background-color: #262f3e;
+    display: flexbox;
+
+}
