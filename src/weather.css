@@ -4,7 +4,6 @@
     flex-direction: column;
     
 }
-
 .SevDAY{
    
     border: 3px solid black;
@@ -15,7 +14,6 @@
     border-radius: 10px;
     background-color: #262f3e;
 }
-
 .searchDiv{
   grid-column: 1 / -1; 
   display: flex;

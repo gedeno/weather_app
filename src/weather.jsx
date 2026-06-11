@@ -23,6 +23,7 @@ export const Weather_data = () => {
                 <div className="Today"> </div>
                 <div className="Today_pro"> <h3> Today prodcast</h3> </div><br />
                 <div className="Air_con"> <h3>Air condition</h3> </div>
+                
             </div>
             <div className="SevDAY"><h3>7 Day prodcast </h3></div>
         </div>
