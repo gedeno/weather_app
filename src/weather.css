@@ -57,6 +57,8 @@
     height: 180px;
     border-radius: 10px;
     background-color: #262f3e;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 .Air_con{
     border: 3px solid black;

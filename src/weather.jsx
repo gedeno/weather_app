@@ -4,43 +4,53 @@ import "./weather.css"
 
 export const Weather_data = () => {
     const [weather , setWeather] = useState({list:[]})
-    const city = "konso"
+    const [city , setcity] = useState("konso")
+    const [temps, setTemps] =  useState([])
     const ap = "e8dda8cf771d6292c8f62887f2ce38d5"
     const API = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${ap}&units=metric`
-
+    
     useEffect(()=>{
         axios.get(API).then((response)=>{
             setWeather(response.data)
+            setTemps(response.data.list.slice(0,7));
+            console.log(response.data)
+        }).catch((error)=>{
+          console.log(error)
         })
     },[])
-    
-
+    const Cityinput = (e) => {
+      setcity(e.target.value)
+    }
     const HumAir = () => {
         const humdity = weather.list[0].main.feels_like
         const WSpeed = weather.list[0].wind.speed
         return ({humdity , WSpeed});
         console.log(humdity)
     }
-
-    const dayTemp = weather.list
-    let j = 0
+    const DayTemp = () => {
+      setTemps(weather.list.slice(0,7));
+      console.log(temps)
+    };
     
-    for(let i = 0; i < 8; i++){
-        console.log(dayTemp[i].main.temp)
-        
-
-    }
+    
 
     return (
       <div className="ALL1">
         <div className="searchDiv">
-          <input className="Search" type="text" />
-          <button className="searchB">search</button>
+          <input className="Search" type="text" onChange={Cityinput} />
+          <button className="searchB" onClick={DayTemp}>search</button>
         </div>
         <div className="leftDiv">
           <div className="Today"> </div>
           <div className="Today_pro">
             <h3> Today prodcast</h3>
+            {
+              temps.map((temp) => {
+                <div >
+                  temp
+                </div>
+              })
+            }
           </div>
           <br />
           <div className="Air_con">
