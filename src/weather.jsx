@@ -28,29 +28,26 @@ export const Weather_data = () => {
         console.log(humdity)
     }
     const DayTemp = () => {
-      setTemps(weather.list.slice(0,7));
-      console.log(temps)
+      const temps = weather.list.slice(0, 7).map((item) => item.main.temp);
+      setTemps(temps);
+      console.log(temps);
     };
     
-    
-
     return (
       <div className="ALL1">
         <div className="searchDiv">
           <input className="Search" type="text" onChange={Cityinput} />
-          <button className="searchB" onClick={DayTemp}>search</button>
+          <button className="searchB" onClick={DayTemp}>
+            search
+          </button>
         </div>
         <div className="leftDiv">
           <div className="Today"> </div>
           <div className="Today_pro">
             <h3> Today prodcast</h3>
-            {
-              temps.map((temp) => {
-                <div >
-                  temp
-                </div>
-              })
-            }
+            {temps.map((temp, index) => (
+              <li key={index}>{temp}°C</li>
+            ))}
           </div>
           <br />
           <div className="Air_con">
