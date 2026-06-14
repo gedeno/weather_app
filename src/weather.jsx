@@ -4,7 +4,7 @@ import "./weather.css"
 
 export const Weather_data = () => {
     const [weather , setWeather] = useState({list:[]})
-    const [city , setcity] = useState("konso")
+    const [city , setcity] = useState("adama")
     const [temps, setTemps] =  useState([])
     const ap = "e8dda8cf771d6292c8f62887f2ce38d5"
     const API = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${ap}&units=metric`
@@ -12,8 +12,8 @@ export const Weather_data = () => {
     useEffect(()=>{
         axios.get(API).then((response)=>{
             setWeather(response.data)
-            setTemps(response.data.list.slice(0,7));
-            console.log(response.data)
+            setTemps(response.data.list.slice(0,8).map(item => item.main.temp));
+      
         }).catch((error)=>{
           console.log(error)
         })
@@ -28,7 +28,7 @@ export const Weather_data = () => {
         console.log(humdity)
     }
     const DayTemp = () => {
-      const temps = weather.list.slice(0, 7).map((item) => item.main.temp);
+      const temps = weather.list.slice(0, 8).map((item) => item.main.temp);
       setTemps(temps);
       console.log(temps);
     };
@@ -44,10 +44,10 @@ export const Weather_data = () => {
         <div className="leftDiv">
           <div className="Today"> </div>
           <div className="Today_pro">
-            <h3> Today prodcast</h3>
-            {temps.map((temp, index) => (
-              <li key={index}>{temp}°C</li>
-            ))}
+              {temps.map((temp, index) => (
+                <p key={index}>{temp}°C</p>
+              ))}
+            
           </div>
           <br />
           <div className="Air_con">
