@@ -13,7 +13,8 @@ export const Weather_data = () => {
         axios.get(API).then((response)=>{
             setWeather(response.data)
             setTemps(response.data.list.slice(0,8).map(item => item.main.temp));
-      
+            const humdity= response.data.list[0].main.feels_like
+            const windSpeed = response.data.list[0].wind.speed;
         }).catch((error)=>{
           console.log(error)
         })
@@ -53,6 +54,8 @@ export const Weather_data = () => {
           <div className="Air_con">
             {" "}
             <h3>Air condition</h3>
+            <h3>humdity: {humdity}</h3>
+            <h3>wind speed: {windSpeed}</h3>
           </div>
         </div>
         <div className="SevDAY">
