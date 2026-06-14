@@ -6,6 +6,7 @@ export const Weather_data = () => {
     const [weather , setWeather] = useState({list:[]})
     const [city , setcity] = useState("adama")
     const [temps, setTemps] =  useState([])
+    const [time ,setTime] = useState([])
     const ap = "e8dda8cf771d6292c8f62887f2ce38d5"
     const API = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${ap}&units=metric`
     
@@ -15,6 +16,7 @@ export const Weather_data = () => {
             setTemps(response.data.list.slice(0,8).map(item => item.main.temp));
             const humdity= response.data.list[0].main.feels_like
             const windSpeed = response.data.list[0].wind.speed;
+            setTime(response.data.list.slice(0,8).map(item => item.dt_txt.slice(11,16)))
         }).catch((error)=>{
           console.log(error)
         })
@@ -29,8 +31,10 @@ export const Weather_data = () => {
         console.log(humdity)
     }
     const DayTemp = () => {
-      const temps = weather.list.slice(0, 8).map((item) => item.main.temp);
+      const temps = weather.list.slice(0, 8).map((item) => item.main.temp)
+      const time = weather.list.slice(0,8).map(item => item.dt_txt.slice(11,16))
       setTemps(temps);
+      setTime(time);
       console.log(temps);
     };
     
@@ -45,17 +49,22 @@ export const Weather_data = () => {
         <div className="leftDiv">
           <div className="Today"> </div>
           <div className="Today_pro">
-              {temps.map((temp, index) => (
-                <p key={index}>{temp}°C</p>
-              ))}
             
+            {
+              time.map((time, index) => (
+                <p key={index}>{time}</p>
+              ))
+            }
+
+            {temps.map((temp, index) => (
+              <p key={index}>{temp}°C</p>
+            ))}
+
           </div>
           <br />
           <div className="Air_con">
             {" "}
             <h3>Air condition</h3>
-            <h3>humdity: {humdity}</h3>
-            <h3>wind speed: {windSpeed}</h3>
           </div>
         </div>
         <div className="SevDAY">
