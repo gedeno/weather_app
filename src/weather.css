@@ -62,8 +62,8 @@
 }
 .Air_con{
     border: 3px solid black;
-    padding: 20px;
-    margin: 10px;
+    padding: 10px;
+    margin: 5px;
     height: 180px;
     border-radius: 10px;
     background-color: #262f3e;
@@ -78,4 +78,7 @@
     grid-template-columns: 2fr 1fr ;
     display: grid;
     padding: 20px;
+}
+.icon{
+    width: 120px
 }
